@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react-course-github",
+  "version": "1.0.0",
+  "description": "This is a react course",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aritra23github/Namaste-react-course.git"
+  },
+  "author": "Aritra Jana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aritra23github/Namaste-react-course/issues"
+  },
+  "homepage": "https://github.com/Aritra23github/Namaste-react-course#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
