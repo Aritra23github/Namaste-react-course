@@ -39,3 +39,30 @@
 
 # why we should not push node_modules onto git ???
 * We push package-lock.json and package.json onto git, so we can regenerate node_modules. And also node_modules has a huge size so we will not push it onto git, instead of we will regenerate by using package_lock.json and package.json. Just use npm install we will regenerate node_modules.
+
+# What is npx ???
+* When we want to install a package then we need to use npm install package_name command, but when we want to execute a package then we need to use npx package_name command.
+
+# Why CDN link is not preferred for react and react dom???
+* When we are usiing cdn links then we need to make a network request which is costly, and also if in future react's new version available then we need to update the cdn link manually which is not good for us. So it is recommended not to use cdn links for react and react dom, instead of we will use react from our node_modules and we will keep the react and react dom in our package.json file so that it will update itself.   
+
+# What parcel does ???
+- Dev Build
+- Local Server
+- HMR -> Hot Module Reload
+- Parcel uses File Watching Algorithm which is written in C++
+- Parcel also does fast reloading because it is using Caching.
+- The most expensive thing in our web browser is to load images, parcel also does IMAGE Optimization.
+- When wew build a production server, parcel also does minification of our codes.
+- Parcel also compress our codes.
+- Parcel also bundles our code.
+- Parcel does consistent hashing.
+- Parcel also does code splitting.
+- Parcel does differential bundling. which means our app will open in older versions of chrome/oprea/internet explorer.
+- Parcel does error handling for us.
+- Parcel also does diagnostics which means beautiful error.
+- our local server runs on http but if we want to use HTTPs then parcel also gives us to make HTTPs server.
+- parcel does Tree shaking which means whenever we creare folder/files, parcel will automatically shake all the files and it will also remove our code which is not in use.
+- parcel does different dev and production builds.
+
+* For Supporting our code into different browsers, we will use browserslist package. we need to declare suported browsers in browserslist array inside package.json file.

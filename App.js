@@ -1,3 +1,5 @@
+import React from "react";
+import ReactDom from "react-dom/client";
 /**
  * Nested HTML element 
  * <div id="parent">
@@ -114,6 +116,6 @@ let headingElement = React.createElement(
     "Hello from React!"
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDom.createRoot(document.getElementById("root"));
 
 root.render(nestedElement);
