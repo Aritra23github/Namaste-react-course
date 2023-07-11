@@ -1,121 +1,22 @@
 import React from "react";
 import ReactDom from "react-dom/client";
-/**
- * Nested HTML element 
- * <div id="parent">
- *  <div id="child">
- *      <h1>I am a child h1 tag</h1>
- *  </div>
- * </div>
- */
 
-/**
- * Nested HTML element with sibling
- * <div id="parent>
- *  <div id="child">
- *      <h1>I am a child h1 tag</h1>
- *      <h2>I am a child h2 tag</h2>
- *  </div>
- * </div>
- */
+// We will not going to use anymore. We will use jsx instead of `React.createElement()`.
 
-/**
- * Nested HTML element with sibling and more than one child
- * <div id="parent>
- *  <div id="child">
- *      <h1>I am a child h1 tag</h1>
- *      <h2>I am a child h2 tag</h2>
- *  </div>
- *  <div id="child2">
- *      <h1>I am a child h1 tag</h1>
- *      <h2>I am a child h2 tag</h2>
- *  </div>
- * </div>
- */
+// const heading = React.createElement(
+//     "h1",
+//     {id: "heading"},
+//     "Hello world 😇"
+// );
 
-let parent = React.createElement(
-    "div", 
-    {id: "parent"}, 
-    React.createElement(
-        "div", 
-        {id: "child"}, 
-        React.createElement(
-            "h1",
-            {},
-            "I am a child h1 tag"
-        )
-    )
-);
+// console.log(heading);
 
-console.log(parent);
+const jsxHeading = <h1>Hello world 🥳</h1>
 
-let siblings = React.createElement(
-    "div", 
-    {id: "parent"}, 
-    React.createElement(
-        "div", 
-        {id: "child"},
-        [
-            React.createElement(
-                "h1",
-                {},
-                "I am a child h1 tag"
-            ),
-            React.createElement(
-                "h2",
-                {},
-                "I am a child h2 tag"
-            )
-        ]
-    )
-);
-
-let nestedElement = React.createElement(
-    "div", 
-    {id: "parent"}, 
-    [
-
-        React.createElement(
-            "div", 
-            {id: "child"},
-            [
-                React.createElement(
-                    "h1",
-                    {},
-                    "I am a child h1 tag"
-                ),
-                React.createElement(
-                    "h2",
-                    {},
-                    "I am a child h2 tag"
-                )
-            ]
-        ),
-        React.createElement(
-            "div", 
-            {id: "child2"},
-            [
-                React.createElement(
-                    "h1",
-                    {},
-                    "I am a child h1 tag"
-                ),
-                React.createElement(
-                    "h2",
-                    {},
-                    "I am a child h2 tag"
-                )
-            ]
-        )
-    ]
-);
-
-let headingElement = React.createElement(
-    "h1", 
-    {id: "heading"}, 
-    "Hello from React!"
-);
+console.log(jsxHeading); // heading and jsxHeading both are the same, both is returing object with the same properties.
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 
-root.render(nestedElement);
+// root.render(heading);
+
+root.render(jsxHeading);
