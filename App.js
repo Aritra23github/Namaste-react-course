@@ -13,10 +13,32 @@ import ReactDom from "react-dom/client";
 
 const jsxHeading = <h1>Hello world 🥳</h1>
 
-console.log(jsxHeading); // heading and jsxHeading both are the same, both is returing object with the same properties.
+console.log(jsxHeading); //! heading and jsxHeading both are the same, both is returing object with the same properties.
+
+const Heading = () => {
+    return (
+        <h1>Hello world 🥳 from heading component</h1>
+    )
+}
+
+const title = (
+    <h1>React Element</h1>
+);
+
+const HeadingComponent = () => {
+    return (
+        <div className="container">
+            <Heading />
+            <h1>Hello world 🥳</h1>
+            {title}
+        </div>
+    )
+}
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 
 // root.render(heading);
 
-root.render(jsxHeading);
+// root.render(jsxHeading);
+
+root.render(<HeadingComponent />);
