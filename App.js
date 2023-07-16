@@ -1829,7 +1829,6 @@ const Body = () => {
                 Search
             </div>
             <div className="res-container">
-                //TODO: Write down why giving key is mandatory
                 {
                     restList.map(res => {
                         return (
