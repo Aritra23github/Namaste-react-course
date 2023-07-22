@@ -1,9 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RestaurantContainer from "./ResturantContainer";
 import restList from "../utils/mockData";
 
 const Body = () => {
-    const [listOfRestaurants, setListOfRestaurants] = useState(restList);
+    const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        const response = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5894036&lng=88.2388162&page_type=DESKTOP_WEB_LISTING"
+        );
+
+        const data = await response.json();
+
+        console.log(data.data.cards[0].data.data.cards);
+
+        setListOfRestaurants(data?.data?.cards[0]?.data?.data?.cards);
+    }
+
     return (
         <div className="body">
             <div className="search-bar">
