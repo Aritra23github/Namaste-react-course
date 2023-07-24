@@ -35,3 +35,24 @@ As soon as the page loads, we will render our UI, then we call api after that we
 * After our component is rendered, as soon as the callback function inside useEffect is called.
 
 # Note:- fetch() method is not given by javascript, it is given by browser.
+
+# Note:- In industry showing a loading screen is not a good idea, instead of showing a loading screen we will use shimmer ui.
+
+# What is conditional rendering ???
+* rendering based on the condition is called by conditional rendering.
+
+# Why we should use useState instead of a normal javascript variable ???
+* if we use normal javascript variable then react will not aware that if the variable is updated or not. So then if we update the variable then also that updated variable will not render in UI.
+* To overcome this issue react has introduced useState. In useState react keeps track of the variable and whenever it changes then the entire component where the variable is updated will re-render and we see the updated value of that variable.
+* As soon as the variable is updated, react uses reconciliation algorithm to detect the changes between two virtual doms (where virtual dom is nothing like a normal javascript objects which is created from jsx and babel is converted it into React.createElement which is nothing like a normal javascript object) and as soon as the difference between two virtual dom is detected, react will render that specific component where the variable is present.
+
+# why we need onChange method in input field ???
+* `<Input type="text" placeholder="search" value={searchText}/>`
+
+* When we write `value={some_variable}` which is a local state variable (i.e. defined using useState) that variable is now tighted or bind. Now whenever we want to write anything inside input box or want to change the variable, then we need to also update the variable also which is declared as a local state variable. Until or unless we don't update the variable, we can't write anything inside input box.
+
+* `<Input type="text" placeholder="search" value={searchText} onChange={(e) => setText(e.target.value)} />` 
+
+* Now as soon as we write inside input box, the variable is also updated and react knows about that.
+
+* For this reason we need to write onChange whenever we bind any variable inside our react application.

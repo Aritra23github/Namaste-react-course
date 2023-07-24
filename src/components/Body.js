@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import Form from 'react-bootstrap/Form';
 import RestaurantContainer from "./ResturantContainer";
+import Shimmer from './Shimmer';
 import restList from "../utils/mockData";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
         fetchData();
@@ -15,28 +18,45 @@ const Body = () => {
         );
 
         const data = await response.json();
+        
+        let restaurantList = data?.data?.cards.filter(card => {
+            return card.cardType === "seeAllRestaurants";
+        });
 
-        console.log(data.data.cards[0].data.data.cards);
-
-        setListOfRestaurants(data?.data?.cards[0]?.data?.data?.cards);
+        setListOfRestaurants(restaurantList[0]?.data?.data?.cards);
     }
 
-    return (
+    return listOfRestaurants.length === 0 ? <Shimmer /> :  (
         <div className="body">
-            <div className="search-bar">
-                Search
-            </div>
-            <div className="top_rated_res">
-                <button 
-                    type="button" 
-                    className="btn btn-primary"
-                    onClick={() => {
-                        const filteredRestaurants = listOfRestaurants.filter(restaurant => restaurant.data.avgRating > 4);
-                        setListOfRestaurants(filteredRestaurants);
-                    }}
-                >
-                    Top Rated Restaurant 🍔
-                </button>
+            <div className='filter'>    
+                <div className="col-md-9 search-bar">
+                    <Form.Control 
+                        type="text" 
+                        placeholder="search" 
+                        value={searchText}
+                        onChange={(e) => {
+                            setSearchText(e.target.value);
+                        }}
+                    />
+                    <button 
+                        type="button" 
+                        className='btn btn-xs btn-primary'
+                    >
+                        Search
+                    </button>
+                </div>
+                <div className="col-md-3 top_rated_res">
+                    <button 
+                        type="button" 
+                        className="btn btn-primary"
+                        onClick={() => {
+                            const filteredRestaurants = listOfRestaurants.filter(restaurant => restaurant.data.avgRating > 4);
+                            setListOfRestaurants(filteredRestaurants);
+                        }}
+                    >
+                        Top Rated Restaurant 🍔
+                    </button>
+                </div>
             </div>
             <div className="res-container">
                 {
