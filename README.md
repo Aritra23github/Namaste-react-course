@@ -56,3 +56,5 @@ As soon as the page loads, we will render our UI, then we call api after that we
 * Now as soon as we write inside input box, the variable is also updated and react knows about that.
 
 * For this reason we need to write onChange whenever we bind any variable inside our react application.
+
+# note:- Whenever a local state variable is updated, react re-renders the UI, which means react executes reconciliation cycle.
