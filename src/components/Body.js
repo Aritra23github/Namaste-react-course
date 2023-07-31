@@ -28,7 +28,7 @@ const Body = () => {
         setFilteredRestaurants(restaurantList[0]?.data?.data?.cards);
     }
 
-    return listOfRestaurants.length === 0 ? <Shimmer /> :  (
+    return listOfRestaurants && listOfRestaurants.length === 0 ? <Shimmer /> :  (
         <div className="body">
             <div className='filter'>    
                 <div className="col-md-9 search-bar">
@@ -69,7 +69,7 @@ const Body = () => {
             </div>
             <div className="res-container">
                 {
-                    filteredRestaurants.map(res => {
+                    filteredRestaurants && filteredRestaurants.map(res => {
                         return (
                             <RestaurantContainer 
                                 key={res.data.id} 
