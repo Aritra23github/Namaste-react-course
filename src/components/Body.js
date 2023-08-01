@@ -5,12 +5,12 @@ import Shimmer from './Shimmer';
 import restList from "../utils/mockData";
 
 const Body = () => {
-    const [listOfRestaurants, setListOfRestaurants] = useState([]);
-    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [listOfRestaurants, setListOfRestaurants] = useState(restList);
+    const [filteredRestaurants, setFilteredRestaurants] = useState(restList);
     const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
-        fetchData();
+        // fetchData();
     }, []);
 
     const fetchData = async () => {
