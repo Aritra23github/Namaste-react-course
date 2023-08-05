@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import RestaurantContainer from "./ResturantContainer";
 import Shimmer from './Shimmer';
 import restList from "../utils/mockData";
+import { Link } from 'react-router-dom';
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState(restList);
@@ -71,10 +72,13 @@ const Body = () => {
                 {
                     filteredRestaurants && filteredRestaurants.map(res => {
                         return (
-                            <RestaurantContainer 
-                                key={res.data.id} 
-                                resData={res} 
-                            />  
+                            <Link to={"/resturant-menu/" + res.data.id} key={res.data.id}>
+                                <RestaurantContainer 
+                                    key={res.data.id} 
+                                    resData={res} 
+                                />
+                            </Link>
+                              
                         )
                     })
                 }

@@ -1,16 +1,17 @@
 import { Card, Button } from "react-bootstrap";
 import { IMG_URl } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const RestaurantContainer = (props) => {
     const { resData } = props;
-    const {cloudinaryImageId, name, cuisines, avgRating, slaString, costForTwo} = resData?.data;
+    const {cloudinaryImageId, name, cuisines, avgRating, slaString, costForTwo, id} = resData?.data;
     return (
         <div>
             <Card style={{ width: '18rem' }} className="res-cart">
                 <Card.Img variant="top" 
                     src={IMG_URl + cloudinaryImageId} 
                 />
-                <Card.Body>
+                <Card.Body style={{textDecoration: 'none', color: 'black'}}>
                     <Card.Title>{resData.data.name}</Card.Title>
                     <Card.Text style={{fontSize: '12px'}}>
                         {cuisines.join(', ')}
@@ -25,7 +26,7 @@ const RestaurantContainer = (props) => {
                     <div>
                         <span>{costForTwo/100} FOR TWO</span>
                     </div>
-                    <span role="button" aria-label="open" className="view_btn">Quick View</span>
+                    <Link to={"/resturant-menu/" + id} style={{textDecoration: 'none', color: 'black'}}>Quick View</Link>
                 </Card.Body>
             </Card>
         </div>
