@@ -1,9 +1,10 @@
+import User from "./User";
 
 export default About = () => {
     return (
-        <>
+        <div>
             <h1>About Us</h1>
-            <h2>React Js</h2>
-        </>
+            <User />
+        </div>
     );
 }

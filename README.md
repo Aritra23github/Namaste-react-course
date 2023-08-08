@@ -1,0 +1,3 @@
+
+# What is the difference between class based components and functional components ???
+* Functional components are just a normal javascript function which returns some piece of jsx. Class based components are just a normal javascript class which extends React.component by which React can track our components and it also have render() method which returns some piece of jsx and this jsx will be rendered on the browser.

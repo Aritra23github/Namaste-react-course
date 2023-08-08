@@ -99,3 +99,8 @@ ul {
     gap: 5rem;
     margin-top: 10px;
 }
+
+.user-card-container {
+    padding: 10px;
+    border: 1pc solid black;
+}
