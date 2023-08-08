@@ -6,7 +6,7 @@
 # Note:- The useState set method is not reflecting a change immediately, the reason is:-
 * The main issue here is not just the asynchronous nature but the fact that state values are used by functions based on their current closures, and state updates will reflect in the next re-render by which the existing closures are not affected, but new ones are created.
 
-* createBrowserRouter in reacr-router-dom takes a list of configuration where paths and element will present where path will be the route and element will be the component.
+* createBrowserRouter in react-router-dom takes a list of configuration where paths and element will present where path will be the route and element will be the component.
 
 * whatever router configuration we create using createBrowserRouter, RouterProvider will help us to implement that routes in our application.
 
