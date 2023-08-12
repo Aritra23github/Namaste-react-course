@@ -84,4 +84,6 @@ export default About;
  * 
  *  This is beacuse React have two phases, first one is Render phase and second phase is Commit phase. Here when react sees a class component is load then first constructor method is called then render method is called. For this reason we are seeing Parent Constructor and Parent render inside console. Next React shows a child component inside parent component, then react calls the Render phase again inside child component so First child constructor and then First child constructor is printed inside console, next react shows inside parent component that again same child component is called so React will not go Commit phase it will again call Render phase. So Second child constructor and Second child render will be printed inside console and same will be happens for Third child component also. At last React will go Commit phase and print first child componentDidMount, second child componentDidMount, third child componentDidMount.
  *  It is because inside Commit phase React updating the DOM, and we know that DOM manipulation is costly, so here react optimize our application and patch all render methods first and then commit phase will be called so that React will perform DOM manipulation only once.
+ * 
+ * It will happen when we call same child component inside parent component.
  */
