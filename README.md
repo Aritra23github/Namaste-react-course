@@ -102,3 +102,15 @@ React first call the constructor method of the component, then it calls the rend
 * For better understanding PLEASE GO THROUGH THIS LINK (https://www.kirupa.com/react/component_lifecycle.htm)
 
 * In React constructor method and render method in inside render phase and when react updates the DOM and componentDidMount method is called that phase is called commit phase.
+
+# React Lifecycle :-
+* In React we can divide the lifecycle into three parts, i.e.
+* First part is mounting
+* Second part is updating
+* Third part is unmounting
+* Mounting phase -------------------------------->
+*  In Mounting phase first constructor is called with default values, props and etc. Then render method is called with default values and update the UI with that default values and we can see that default values or skeleton loading for few milliseconds. After that componentDidMount() is called. And inside componentDidMount() api calls are called, update local state variables with api datas now.
+* Updating phase -------------------------------->
+*  In Updating phase again render method is called and this time render method is called with api data which are set in Mouting phase. After rendering method is called, componentDidUpdate() is called.
+* Unmounting phase -------------------------------->
+*  In Unmounting phase componentWillUnmount() is called. This method will be called when we will unmount the component from dom. When we navigate one page to another page, then componentWillUnmount() method will be called.

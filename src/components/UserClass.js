@@ -6,38 +6,47 @@ class UserClass extends React.Component {
 
         //! This is the way to create local state variables inside our class based component.
         this.state = {
-            count: 0
+            userInfo: {
+                name: "Dummy Name",
+                location: "Dummy Location",
+                twitter_username: "Dummy Phone",
+            }
         };
 
         console.log(this.props.name + " constructor");
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         console.log(this.props.name + " componentDidMount");
+        try {
+            const response = await fetch("https://api.github.com/users/ARITRA06");
+            const json = await response.json();
+            this.setState({
+                userInfo: json
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    componentDidUpdate() {
+        console.log(this.props.name + ' Component did update');
+    }
+
+    componentWillUnmount() {
+        console.log(this.props.name + ' Component will unmount');
     }
 
     render() {
         console.log(this.props.name + " render");
 
-        const {name, location, phone} = this.props;
-        const {count} = this.state;
+        const {name, location, twitter_username} = this.state.userInfo;
 
         return (
             <div className="user-card-container">
-                <h1>Count: {count}</h1>
-                <button 
-                    type="button" 
-                    onClick={() => {
-                        this.setState({
-                            count: this.state.count + 1
-                        })
-                    }}
-                >
-                    Click
-                </button>
-                <h1>{name}</h1>
+                <h1>Name: {name}</h1>
                 <h2>Location: {location}</h2>
-                <h3>Contact: {phone}</h3>
+                <h3>Contact: {twitter_username}</h3>
             </div>
         );
     }
