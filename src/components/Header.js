@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Card, Button, Nav, Navbar, Container } from "react-bootstrap";
 import { LOGO_URL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
     const [btnName, setBtnName] = useState('Login');
+    const onlineStatus = useOnlineStatus();
+
     return (
         <div className="header">    
             <Navbar className="bg-body-tertiary">
@@ -21,6 +24,11 @@ const Header = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav className="justify-content-end">
+                            <li
+                                style={{paddingLeft: '20px', paddingRight: '20px', cursor: 'pointer'}}
+                            >
+                                Online Status : { onlineStatus ?  '✅' : '🔴'}
+                            </li>
                             <li 
                                 style={{paddingLeft: '20px', paddingRight: '20px', cursor: 'pointer'}}
                             >

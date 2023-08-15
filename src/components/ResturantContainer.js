@@ -26,8 +26,10 @@ const RestaurantContainer = (props) => {
                     <div>
                         <span>{costForTwo/100} FOR TWO</span>
                     </div>
-                    <Link to={"/resturant-menu/" + id} style={{textDecoration: 'none', color: 'black'}}>Quick View</Link>
                 </Card.Body>
+            <div>
+                <Link to={"/resturant-menu/" + id} style={{textDecoration: 'none', color: 'black'}}>Quick View</Link>
+            </div>
             </Card>
         </div>
     )
