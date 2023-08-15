@@ -11,7 +11,7 @@ export default useOnlineStatus = () => {
         window.addEventListener('online', () => {
             setOnlineStatus(true);
         })
-    }, [onlineStatus]);
+    }, []);
 
     return onlineStatus;
 }
