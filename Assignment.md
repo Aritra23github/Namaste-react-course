@@ -10,3 +10,6 @@
 CDN is very fast to load.
 
 Here we are using cdn links for using react, we have written two different cdn links, the first one is for core react code, the second one is for react dom which is doing a bridge connection between react and browser.
+
+# Why react is known as react ???
+* React is a JavaScript library for building user interfaces. It was developed by Facebook, and the name “React” was chosen because it is meant to help developers build user interfaces that are fast and responsive, or “reactive.” The library was designed to “react” to changes in data.
