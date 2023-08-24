@@ -35,4 +35,17 @@ const RestaurantContainer = (props) => {
     )
 }
 
+// Higher Order Components
+
+export const PromotedResturant = (RestaurantContainer) => {
+    return (props) => {
+        return (
+            <div>
+                <label for="">Promoted</label>
+                <RestaurantContainer {...props} />
+            </div>
+        )
+    }
+}
+
 export default RestaurantContainer;

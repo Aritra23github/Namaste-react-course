@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
-import RestaurantContainer from "./ResturantContainer";
+import RestaurantContainer, {PromotedResturant} from "./ResturantContainer";
 import Shimmer from './Shimmer';
 import restList from "../utils/mockData";
 import { Link } from 'react-router-dom';
@@ -11,6 +11,8 @@ const Body = () => {
     const [filteredRestaurants, setFilteredRestaurants] = useState(restList);
     const [searchText, setSearchText] = useState("");
     const onlineStatus = useOnlineStatus();
+
+    const PromotedRestaurants = PromotedResturant(RestaurantContainer);
 
     useEffect(() => {
         // fetchData();
@@ -83,10 +85,18 @@ const Body = () => {
                     filteredRestaurants && filteredRestaurants.map(res => {
                         return (
                             <Link to={"/resturant-menu/" + res.data.id} key={res.data.id}>
-                                <RestaurantContainer 
-                                    key={res.data.id} 
-                                    resData={res} 
-                                />
+                                {
+                                    res.data.promoted ? 
+                                        <PromotedRestaurants 
+                                            key={res.data.id} 
+                                            resData={res} 
+                                        /> : 
+                                        <RestaurantContainer 
+                                            key={res.data.id} 
+                                            resData={res} 
+                                        />
+                                }
+                                
                             </Link>
                               
                         )

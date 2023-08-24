@@ -7,7 +7,7 @@ export default ResturantMenu = () => {
     const { id } = useParams();
 
     let resInfo = useResturantMenu(id);
-
+    console.log(resInfo);
     return resInfo.length == 0 ? <Shimmer /> : (
         <div>
             <div>

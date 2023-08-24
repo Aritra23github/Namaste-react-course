@@ -13,6 +13,7 @@ export default useResturantMenu = (resId) => {
             const response = await fetch(resturant_menu_api + resId);
             const json = await response.json();
             let resposeList = json.data.cards[0].card.card.info;
+            console.log(resposeList);
             setResInfo(resposeList);
         } catch (error) {
             console.log('e:',error);

@@ -9,13 +9,13 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className="flex justify-between">    
-            <Navbar className="bg-body-tertiary flex">
+        <div className="header">    
+            <Navbar className="bg-body-tertiary">
                 <Container>
                     <Navbar.Brand href="#home">
                         <img
                             src={LOGO_URL}
-                            className="w-56"
+                            className="d-inline-block align-top"
                             alt="Food Ordering Logo"
                         />
                     </Navbar.Brand>
