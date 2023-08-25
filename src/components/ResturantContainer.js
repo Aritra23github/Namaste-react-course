@@ -41,7 +41,7 @@ export const PromotedResturant = (RestaurantContainer) => {
     return (props) => {
         return (
             <div>
-                <label for="">Promoted</label>
+                <label htmlFor="promotion">Promoted</label>
                 <RestaurantContainer {...props} />
             </div>
         )

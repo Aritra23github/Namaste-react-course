@@ -112,7 +112,7 @@ const restList = [
             "preferentialService": false,
             "iconType": "EMPTY"
           },
-          "promoted": false,
+          "promoted": true,
           "avgRating": "3.9",
           "totalRatings": 20,
           "new": false
@@ -230,7 +230,7 @@ const restList = [
             "preferentialService": false,
             "iconType": "EMPTY"
           },
-          "promoted": false,
+          "promoted": true,
           "avgRating": "4.3",
           "totalRatings": 1000,
           "new": false
@@ -348,7 +348,7 @@ const restList = [
             "preferentialService": false,
             "iconType": "EMPTY"
           },
-          "promoted": false,
+          "promoted": true,
           "avgRating": "4.0",
           "totalRatings": 1000,
           "new": false

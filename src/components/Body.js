@@ -43,10 +43,11 @@ const Body = () => {
 
     return listOfRestaurants && listOfRestaurants.length === 0 ? <Shimmer /> :  (
         <div className="body">
-            <div className='filter'>    
-                <div className="col-md-9 search-bar">
-                    <Form.Control 
+            <div className='filter flex'>    
+                <div className="search m-4 p-4">
+                    <input
                         type="text" 
+                        className='border border-solid border-black'
                         placeholder="search" 
                         value={searchText}
                         onChange={(e) => {
@@ -56,7 +57,7 @@ const Body = () => {
                     />
                     <button 
                         type="button" 
-                        className='btn btn-xs btn-primary'
+                        className='px-4 py-2 bg-green-100 m-4 rounded-lg'
                         onClick={() => {
                             const filteredRestaurants = listOfRestaurants.filter(
                                 restaurant => restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
@@ -67,10 +68,10 @@ const Body = () => {
                         Search
                     </button>
                 </div>
-                <div className="col-md-3 top_rated_res">
+                <div className="search m-4 p-4 flex items-center">
                     <button 
                         type="button" 
-                        className="btn btn-primary"
+                        className="px-4 py-2 bg-gray-100 rounded-lg"
                         onClick={() => {
                             const filteredRestaurants = listOfRestaurants.filter(restaurant => restaurant.data.avgRating > 4);
                             setFilteredRestaurants(filteredRestaurants);
@@ -80,7 +81,7 @@ const Body = () => {
                     </button>
                 </div>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
                     filteredRestaurants && filteredRestaurants.map(res => {
                         return (

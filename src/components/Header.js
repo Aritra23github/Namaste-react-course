@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-import { Card, Button, Nav, Navbar, Container } from "react-bootstrap";
 import { LOGO_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -9,52 +8,35 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className="header">    
-            <Navbar className="bg-body-tertiary">
-                <Container>
-                    <Navbar.Brand href="#home">
-                        <img
-                            src={LOGO_URL}
-                            className="d-inline-block align-top"
-                            alt="Food Ordering Logo"
-                        />
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
-                        <Nav className="justify-content-end">
-                            <li
-                                style={{paddingLeft: '20px', paddingRight: '20px', cursor: 'pointer'}}
-                            >
-                                Online Status : { onlineStatus ?  '✅' : '🔴'}
-                            </li>
-                            <li 
-                                style={{paddingLeft: '20px', paddingRight: '20px', cursor: 'pointer'}}
-                            >
-                                <Link to='/' style={{textDecoration: 'none', color: 'black'}}>Home</Link>
-                            </li>
-                            <li 
-                                style={{paddingLeft: '20px', paddingRight: '20px', cursor: 'pointer'}}
-                            >
-                                <Link to='/contact' style={{textDecoration: 'none', color: 'black'}}>Contact</Link>
-                            </li>
-                            <li 
-                                style={{paddingLeft: '20px', paddingRight: '20px', cursor: 'pointer'}}
-                            >
-                                <Link style={{textDecoration: 'none', color: 'black'}} to='/about'>About</Link>
-                            </li>
-                            <button 
-                                type="button" 
-                                className="btn btn-primary" 
-                                onClick={
-                                    () => btnName === 'Login' ? setBtnName('Logout') : setBtnName('Login')
-                                }
-                            >
-                                {btnName}
-                            </button>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
+        <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
+            <div className="logo-container">
+                <img className="w-56" src={LOGO_URL} />
+            </div>
+            <div className="flex items-center">
+                <ul className="flex p-4 m-4">
+                <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+                <li className="px-4">
+                    <Link to="/">Home</Link>
+                </li>
+                <li className="px-4">
+                    <Link to="/about">About Us</Link>
+                </li>
+                <li className="px-4">
+                    <Link to="/contact">Contact Us</Link>
+                </li>
+                
+                <button
+                    className="login"
+                    onClick={() => {
+                    btnNameReact === "Login"
+                        ? setBtnName("Logout")
+                        : setBtnName("Login");
+                    }}
+                >
+                    {btnName}
+                </button>
+                </ul>
+            </div>
         </div>
     )
 }
