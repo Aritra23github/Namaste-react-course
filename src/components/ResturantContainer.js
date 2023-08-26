@@ -7,30 +7,13 @@ const RestaurantContainer = (props) => {
     const {cloudinaryImageId, name, cuisines, avgRating, slaString, costForTwo, id} = resData?.data;
     return (
         <div>
-            <Card style={{ width: '18rem' }} className="res-cart">
-                <Card.Img variant="top" 
-                    src={IMG_URl + cloudinaryImageId} 
-                />
-                <Card.Body style={{textDecoration: 'none', color: 'black'}}>
-                    <Card.Title>{resData.data.name}</Card.Title>
-                    <Card.Text style={{fontSize: '12px'}}>
-                        {cuisines.join(', ')}
-                    </Card.Text>
-                    <div className="rating-tag rate">
-                        <span className="icon-star style-icon">*</span>
-                        <span>{avgRating}</span>
-                    </div>
-                    <div>
-                        <span>{slaString}</span>
-                    </div>
-                    <div>
-                        <span>{costForTwo/100} FOR TWO</span>
-                    </div>
-                </Card.Body>
-            <div>
-                <Link to={"/resturant-menu/" + id} style={{textDecoration: 'none', color: 'black'}}>Quick View</Link>
+            <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
+                <img src={IMG_URl + cloudinaryImageId} className="rounded-lg" alt="res-logo" />
+                <span className="font-bold py-4 text-lg text-slate-400">{name}</span>
+                <h4 className="no-underline">{cuisines.join(", ")}</h4>
+                <h4>{avgRating} stars</h4>
+                <h4>₹{costForTwo / 100} FOR TWO</h4>
             </div>
-            </Card>
         </div>
     )
 }
