@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import RestaurantContainer, {PromotedResturant} from "./ResturantContainer";
 import Shimmer from './Shimmer';
 import restList from "../utils/mockData";
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import userContext from '../utils/userContext';
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState(restList);
@@ -13,6 +14,8 @@ const Body = () => {
     const onlineStatus = useOnlineStatus();
 
     const PromotedRestaurants = PromotedResturant(RestaurantContainer);
+
+    const {loggedInUser, setUserName} = useContext(userContext);
 
     useEffect(() => {
         // fetchData();
@@ -80,12 +83,23 @@ const Body = () => {
                         Top Rated Restaurant 🍔
                     </button>
                 </div>
+                <div className="search m-4 p-4 flex items-center">
+                    <label>User name</label>
+                    <input 
+                        className="p-2 border-black" 
+                        type="text" 
+                        name="" 
+                        value={loggedInUser} 
+                        onChange={(e) => setUserName(e.target.value)}
+                    />
+                </div>
             </div>
             <div className="flex flex-wrap">
                 {
                     filteredRestaurants && filteredRestaurants.map(res => {
                         return (
                             <Link to={"/resturant-menu/" + res.data.id} key={res.data.id}>
+                                <label>{loggedInUser}</label>
                                 {
                                     res.data.promoted ? 
                                         <PromotedRestaurants 
@@ -99,7 +113,6 @@ const Body = () => {
                                 }
                                 
                             </Link>
-                              
                         )
                     })
                 }

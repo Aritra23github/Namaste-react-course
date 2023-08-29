@@ -3,11 +3,19 @@ import {IMG_URl} from '../utils/constants';
 import {Link, useParams} from 'react-router-dom';
 import useResturantMenu from "../utils/useResturantMenu";
 import ResturantCategory from "./ResturantCategoty";
+import { useState, useCallback } from "react";
 
 export default ResturantMenu = () => {
     const { id } = useParams();
+    const [showIndex, setShowIndex] = useState(null); 
 
     let resInfo = useResturantMenu(id);
+
+    const toggleAcordians = () => {
+        // setShowIndex(prevIndex => !prevIndex);
+        console.log('click');
+        console.log(showIndex);
+    }
     
     let FilterRestaurantCategory = resInfo.filter(res => {
         return res?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant"
@@ -30,6 +38,8 @@ export default ResturantMenu = () => {
                     <ResturantCategory 
                         key={index} 
                         categoryData={category?.card?.card}
+                        showAcordian={index === showIndex ?? true}
+                        setShowAcordian={() => setShowIndex(index)}
                     />
                 ))
             }

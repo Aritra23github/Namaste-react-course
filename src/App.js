@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDom from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,7 +8,7 @@ import ErrorElement from "./components/ErrorElement";
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import ResturantMenu from "./components/ResturantMenu";
 import Shimmer from "./components/Shimmer";
-
+import userContext from "./utils/userContext";
 //! Restaurant App Planning
 /*
 * Header
@@ -29,11 +29,20 @@ const About = lazy(() => import("./components/About"));
 const Footer = () => {}
 
 const AppLayout = () => {
+    const [userName, setUserName] = useState(null);
+
+    //Authentication
+    useEffect(() => {
+        setUserName("Aritra Jana");
+    }, []);
+
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
-        </div>
+        <userContext.Provider value={{loggedInUser: userName, setUserName}}>
+            <div className="app">
+                <Header />
+                <Outlet />
+            </div>
+        </userContext.Provider>
     )
 }
 
