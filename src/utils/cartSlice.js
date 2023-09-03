@@ -7,6 +7,7 @@ const cartSlice = createSlice({
         items: []
     },
     reducers: {
+        // This reducer will only maintain cart slice.
         //mutating the state here
         addItem: (state, action) => {
             state.items.push(action.payload);
