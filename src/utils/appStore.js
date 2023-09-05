@@ -4,7 +4,7 @@ import cartSlice from "./cartSlice";
 const appStore = configureStore({
     // This is the reducer for our whole redux store.
     reducer: {
-        cartReducer: cartSlice
+        cart: cartSlice
     }
 });
 

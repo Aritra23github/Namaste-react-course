@@ -4,27 +4,29 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-        items: []
+        cartItems: []
     },
     reducers: {
         // This reducer will only maintain cart slice.
         //mutating the state here
         addItem: (state, action) => {
-            state.items.push(action.payload);
+            state.cartItems.push(action.payload);
         },
         removeItem: (state, action) => {
             console.log(action);
-            state.items.filter((item, index) => {
+            state.cartItems.filter((item, index) => {
                 index !== action.payload
             });
         },
         clearCart: (state, action) => {
-            // state.items = [];
-            state.items.length = 0;
+            // state.cartItems = [];
+            state.cartItems.length = 0;
         }
     }
 });
 
+
+//Here the addItem, removeItem, clearCart all of these are actions and all the functions which is related to this actions are reducers.
 
 export const {
     addItem,
