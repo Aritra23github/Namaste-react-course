@@ -27,6 +27,7 @@ import appStore from "./utils/appStore";
 */
 
 const About = lazy(() => import("./components/About"));
+const Cart = lazy(() => import("./components/Cart"));
 
 const Footer = () => {}
 
@@ -74,6 +75,14 @@ const appRouter = createBrowserRouter([
             {
                 path: '/resturant-menu/:id',
                 element: <ResturantMenu />
+            },
+            {
+                path: '/cart',
+                element: (
+                    <Suspense fallback={<Shimmer/>}>
+                        <Cart />
+                    </Suspense>
+                )
             }
         ],
         errorElement: <ErrorElement />

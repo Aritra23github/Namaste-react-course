@@ -9,3 +9,36 @@
 
 
 * For creating store using redux we have to use configureStore() method. And for providing store to our application, we need to use Provider component which will take store as props, which will imported from the react-redux library. If we want to provide store data to some specific component then we need to wrap Provider component with the specified component.
+
+
+* To write value inside our redux store we need to call an action which will call a reducer and this will do by useDisptach() hook, which will return a function and takes a reducer function. Ex:-
+
+const dispatch = useDisptach();
+dispatch(reducerFunction());
+
+Here reducerFunction is an action and reducerFunction() is a reducer which will help us to update our store.
+
+* Now we have to read data from the redux store, for that we have to subscribe our component with our store. 
+
+* To access the store data all around our application we need to use a component which is called Provider component. This component takes store as props, whatever we create using configureStore() method, we have to pass that as a props in Provider component.
+
+* Now for using data in our component we need to use useSelector hook. We need to fetch which part of our store we want to use, otherwise it will effect our application performance. Example:-
+
+const items = useSelector((store) => store.cart.items);
+
+* Basically useSelector returns whole store, if we keep whole store then it will effect our performance of our application.
+
+const items = useSelector((store) => store);
+const cartItems = items.cart.items;
+
+This code will effect our performance of our application.
+
+
+* A slice is made of multiple reducers, so inside slice when we write createSlice method, inside this createSlice method we write reducers and we export one reducer from the slice, where reducer is the consists of multiple reducers inside the slice.
+
+* In configureStore method we write reducer because the whole reducer is consists of multiple reducers.
+
+
+* In older versions of redux we can't mutate state directly, but in newer versions of redux we have to mutate state or return a new state.
+
+* Behind the scene redux use immer js package to update the state.
